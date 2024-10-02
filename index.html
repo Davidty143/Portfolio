@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio with Borders for Visualization</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Hide the checkbox */
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    /* Styles for the sidebar */
+    #sidebar {
+      display: none;
+      /* Hidden by default */
+      transition: transform 0.3s ease;
+      /* Smooth transition */
+      transform: translateX(-100%);
+      /* Start off-screen */
+    }
+
+
+    /* Show sidebar when checkbox is checked */
+    input[type="checkbox"]:checked~#sidebar {
+      display: flex;
+      /* Use flex to show sidebar */
+      transform: translateX(0);
+      /* Slide in */
+    }
+
+    /* Sidebar styles for larger screens */
+    @media (min-width: 1280px) {
+      #sidebar {
+        display: flex;
+        /* Always show on larger screens */
+        transform: none;
+        /* No transform effect */
+      }
+
+      /* Hide buttons on larger screens */
+      .hamburger-btn,
+      .close-btn {
+        display: none;
+        /* Hide both buttons */
+      }
+    }
+
+    /* Hamburger button styles */
+    .hamburger-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 24px;
+      z-index: 10;
+      /* Ensure it appears above other elements */
+    }
+
+    /* Close button styles */
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      /* Adjusted position */
+      right: 20px;
+      /* Adjusted position */
+      cursor: pointer;
+      display: none;
+      color: black;
+    }
+
+    /* Hover effect for links */
+    nav a:hover {
+      color: #4a4a4a;
+      /* Change text color on hover */
+      transform: scale(1.05);
+      /* Scale up slightly */
+      transition: transform 0.2s ease;
+      /* Smooth scale transition */
+    }
+  </style>
+
+</head>
+
+<body class="bg-[#f2f2ee] text-black">
+  <!-- Outer container -->
+  <!-- Main container -->
+  <div class="flex relative flex-col md:flex-row m-4-mt-1">
+    <!-- Red border around the main container -->
+
+    <!-- Outer Box -->
+    <div id="home" class="flex-relative p-6">
+      <!-- Checkbox for mobile navigation -->
+      <input type="checkbox" id="menu-toggle" class="lg:hidden">
+      <label for="menu-toggle" class="hamburger-btn" title="Open Menu">
+        <span>☰</span>
+      </label>
+
+      <!-- Sidebar -->
+      <div id="sidebar"
+        class="bg-[#fafafa] text-black p-20 lg:pt-52 lg:pb-80 br flex flex-col justify-between shadow-xl -mx-5 items-center sticky -mt-6 top-0 relative lg:-ml-10">
+        <!-- Close Button -->
+        <label for="menu-toggle" class="close-btn" title="Close Sidebar">&times;</label>
+
+        <nav class="space-y-8 relative">
+          <a href="#home" class="relative block group"
+            onclick="document.getElementById('menu-toggle').checked = false;">
+            <img src="./assets/home_icon.png" alt="Home"
+              class="absolute left-[-5px] top-[-5px] w-8 h-8 group-hover:opacity-75">
+            <span class="relative z-10 text-xl pl-12">Home</span>
+          </a>
+          <a href="#about" class="relative block group"
+            onclick="document.getElementById('menu-toggle').checked = false;">
+            <img src="./assets/about_icon.png" alt="About"
+              class="absolute left-[-5px] top-[-5px] w-8 h-8 group-hover:opacity-75">
+            <span class="relative z-10 text-xl pl-12">About</span>
+          </a>
+          <a href="#portfolio" class="relative block group"
+            onclick="document.getElementById('menu-toggle').checked = false;">
+            <img src="./assets/portfolio_icon.png" alt="Portfolio"
+              class="absolute left-[-5px] top-[-5px] w-8 h-8 group-hover:opacity-75">
+            <span class="relative z-10 text-xl pl-12">Portfolio</span>
+          </a>
+          <a href="#contact" class="relative block group"
+            onclick="document.getElementById('menu-toggle').checked = false;">
+            <img src="./assets/contact_icon.png" alt="Contact"
+              class="absolute left-[-5px] top-[-5px] w-8 h-8 group-hover:opacity-75">
+            <span class="relative z-10 text-xl pl-12">Contact</span>
+          </a>
+        </nav>
+
+        <!-- Social icons -->
+        <div class=" flex space-x-3 mt-32">
+          <a href="https://www.facebook.com/davidantonio.ty" class="hover:text-gray-300">
+            <img src="./assets/facebook_icon.png" alt="Facebook" class="w-9 h-11">
+          </a>
+          <a href="https://github.com/Davidty143" class="hover:text-gray-300">
+            <img src="./assets/github_icon.png" alt="GitHub" class="w-13 h-11">
+          </a>
+          <a href="https://www.linkedin.com/in/david-ty-370590263/" class="hover:text-gray-300">
+            <img src="./assets/linkedin_icon.png" alt="LinkedIn" class="w-12 h-11">
+          </a>
+        </div>
+        <!-- Vertical Line -->
+      </div>
+
+    </div>
+
+
+
+    <!-- Outer Box -->
+    <div class="flex-grow p-6 "> <!-- black border -->
+      <!-- Main Content -->
+      <div
+        class="flex-grow p-6 flex flex-col items-center md:h-[30rem] lg:h-[50rem] md:flex-row md:justify-start md:space-x-20 -mx-5 -mt-5">
+        <!-- Custom height -->
+        <!-- Blue border around the main content area -->
+
+
+        <div class="border-4 border-[#f2f2ee] flex flex-col mx-0 sm:mx-6 md:mx-12 lg:mx-20 md:flex-row lg:gap-20">
+          <!-- Image Section - Appears first on smaller screens -->
+          <div class="order-1 md:order-2 border-4 border-[#f2f2ee] p-4">
+            <!-- Yellow border around the image section -->
+            <img src="./assets/home_photo.jpg" alt="Person Writing"
+              class="border-4 border-black w-full lg:w-3/4 xl:w-full mx-auto" />
+          </div>
+
+          <!-- Text Section - Appears after the image on smaller screens -->
+          <div class="text-center md:text-left order-2 md:order-1 border-4 border-[#f2f2ee] p-4">
+            <!-- Purple border around the text section -->
+            <h1
+              class="text-2xl sm:text-3xl text-left sm:text-center md:text-left text-2xl md:text-4xl lg:mt-10 lg:text-5xl font-bold">
+              Hi, I’m David!<br />an aspiring<br />Software Engineer
+            </h1>
+            <div class="flex justify-start sm:justify-center md:justify-start mt-4 sm:mt-6 md:mt-8 lg:mt-10 xl:mt-12">
+              <a href="#about "
+                class="text-base sm:text-lg md:text-sm lg:text-lg xl:text-2xl bg-transparent border-2 border-gray-900 py-2 sm:py-3 md:py-2 lg:py-3 xl:py-3 px-4 sm:px-6 md:px-5 lg:px-10 xl:px-12 rounded-full text-gray-900 hover:bg-gray-300 transition-all duration-300">
+                GET TO KNOW ME
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- About Page 1 Section -->
+      <div id="about"
+        class="flex-grow p-6 flex flex-col items-center md:flex-row md:justify-start md:space-x-20 border-8 border-[#fafafa] -mx-5 mm-10 bg-[#fafafa] rounded-md xl:ml-3 xl:mb-20">
+
+        <!-- About page 1 Image Section - Appears first on smaller screens -->
+        <div class=" flex flex-col mx-0 sm:mx-6 md:mx-12 lg:mx-20 lg:flex-row">
+
+          <div class="p-5">
+
+            <!-- Yellow border around the image section -->
+            <img src="./assets/about_photo.jpg" alt="Person Writing" class="border-4 border-black mx-auto lg:mt-5" />
+            <h1
+              class="text-lg lg:text-3xl xl:text-4xl -mt-6 font-bold text-right  mb-10 sm:text-2xl sm:text-center lg:text-right">
+              <br>David Ty
+            </h1>
+          </div>
+
+          <!-- about page 1 Text Section - Appears after the image on smaller screens -->
+          <div <div class="text-center md:text-left w-full lg:w-1/2 p-4 md:p-6 lg:p-8 mx-auto">
+
+            <!-- Purple border around the text section -->
+            <h1 class="text-3xl md:text-4xl text-left font-bold mb-5 ">
+              About Me
+            </h1>
+
+            <h2 class="text-left text-left text-lg mb-8">
+              I am a second-year student at Visayas State University, pursuing a bachelor’s degree in
+              computer science,
+              with aspirations of becoming a successful software engineer and UI/UX designer.
+            </h2>
+
+            <ul class="text-left text-left list-none space-y-2 md:space-y-4 text-md t">
+              <li>
+                <strong>Birthday: </strong>December
+                6, 2003
+              </li>
+              <li>
+                <strong>Age: </strong>20
+                Years Old
+              </li>
+              <li>
+                <strong>Address: </strong>Ormoc
+                City, Leyte
+              </li>
+              <li>
+                <strong>Email: </strong>22-1-00262@vsu.edu.ph
+              </li>
+              <li>
+                <strong>Nationality: </strong>Filipino
+              </li>
+              <li>
+                <strong>Status: </strong>Student
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Education section -->
+      <div id="resume"
+        class="flex-grow p-6 flex flex-col items-center md:flex-row md:justify-start md:space-x-20 border-4 border-[#f2f2ee] -mx-5">
+
+        <!-- Text Section - Appears after the image on smaller screens -->
+        <div class="mx-0 sm:mx-6 md:mx-12 lg:mx-20  text-left border-4 border-[#f2f2ee]">
+          <h1
+            class="md:mb-10 md:text-left md:text-4xl lg:text-5xl lg:text-left text-left sm:text-4xl text-3xl font-bold mb-10">
+            Education
+          </h1>
+          <div
+            class="md:mx-5 lg:mx-8 text-left text-left border-2 border-[#545e51] rounded-lg shadow-lg p-4 mt-5 sm:mx-10">
+
+            <h1 class="md:text-left md:text-xl lg:text-left lg:text-2xL text-left text-lg font-bold">
+              Visayas State University
+            </h1>
+            <h2 class="md:text-left md:text-lg lg:text-left lg:text-lg text-md">
+              Baybay City, Philippines
+            </h2>
+            <br>
+
+            <h1 class="md:text-left md:text-4xl lg:text-4xl lg:text-left sm:text-2xl text-xl font-bold">
+              Computer Science
+            </h1> <br>
+            <h2 class="md:mx-0 md:text-left md:text-lg lg:mx-0 lg:text-left lg:text-lg text-left text-md">
+              Studied Coursework: Fundamentals of Programming, Intermediate Programming, Object-Oriented
+              Programming,
+              Fundamentals of
+              Database Systems, Data Structures and Algorithms, Information Management, Algorithms and
+              Complexity,
+              Computer
+              Organization and Architecture, Applications Development, Event-Driven Programming.
+            </h2>
+            <h2 class="md:mx-0 md:text-left md:text-lg lg:mx-0 lg:text-left lg:text-lg text-left text-md mt-10">
+              <a href="./assets/Resume-Final.pdf" download class="text-blue-500 hover:underline">
+                Resume
+              </a> (click to download)
+            </h2>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- skills and hobbies-->
+      <div
+        class="flex-grow p-6 flex flex-col md:h-[60rem] lg:h-[30rem]  items-center md:flex-row md:justify-start md:justify-center md:space-x-20 border-4 border-[#f2f2ee] -mx-5">
+
+        <!-- Text Section - Appears after the image on smaller screens -->
+        <div
+          class="flex flex-col lg:flex-row sm:mx-6 md:mx-12 lg:mx-20 border-4 border-[#f2f2ee] mx-auto gap-14 lg:gap-32 lg:mt-52">
+
+          <div class="text-left border-4 border-[#f2f2ee]">
+            <h1 class="text-3xl md:text-4xl lg:text-4xl font-bold mb-10 lg:-ml-14">
+              Skills
+            </h1>
+            <h1 class="text-lg lg:text-xl ">
+              Programming: C, C++, C#, Java
+            </h1>
+            <div class="w-full bg-gray-300 rounded-full h-2 mt-5">
+              <div class="bg-green-500 h-full rounded-full" style="background-color: #334443;width: 80%;">
+              </div>
+            </div>
+
+            <h1 class="text-lg lg:text-xl mt-10">
+              Web Development: MySQL, HTML, CSS, JavaScript
+            </h1>
+
+            <div class="w-full bg-gray-300 rounded-full h-2 mt-5">
+              <div class="bg-green-500 h-full rounded-full" style="background-color: #334443;width: 60%;">
+              </div>
+            </div>
+
+
+            <h1 class="text-lg lg:text-xl mt-10 ">
+              Tools: Figma, Git, Canva
+            </h1>
+
+            <div class="w-full bg-gray-300 rounded-full h-2 mt-5">
+              <div class="h-full rounded-full" style="background-color: #334443;width: 70%;">
+              </div>
+            </div>
+
+
+
+
+          </div>
+          <div class="border-4 border-[#f2f2ee]">
+            <div class="border-4 border-[#131411] mt-10 rounded-xl shadow-xl">
+              <ul
+                class="list-disc list-inside space-y-5 text-lg lg:text-xl my-10 ml-10 sm:ml-20 lg:ml-12 lg:mx-auto lg:max-w-3xl">
+                <!-- Centered list with max width -->
+                <li>Programming</li>
+                <li>Technology</li>
+                <li>UI/UX Design</li>
+                <li>Self Improvement</li>
+                <li>Video Games</li>
+                <li>Film</li>
+                <li>Music</li>
+              </ul>
+            </div>
+            <h1 class="text-2xl lg:text-3xl text-right mt-5 font-bold">
+              Hobbies / Interests
+            </h1>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- Portfolio page 1 -->
+      <div class="flex flex-grow xl:flex-row flex-col items-left border-4 border-[#f2f2ee] -mx-5 mt-10">
+
+        <!-- Image 1 -->
+        <div class="border-4 border-[#f2f2ee] p-5 sm:p-14 md:p-20 lg:p-28">
+          <!-- Yellow border around the image section -->
+
+          <div class="border-4 border-[#f2f2ee] ">
+            <h1 id="portfolio" class="text-3xl md:text-4xl lg:text-4xl font-bold lg:-ml-3 lg:mt-10">
+              Portfolio
+            </h1>
+          </div>
+          <div class="border-4 border-[#f2f2ee]">
+
+            <div class="border-4 border-[#f2f2ee] w-full mx-auto lg:p-5 mt-10 ">
+
+              <img src="./assets/wallet_manager.png" alt="Person Writing" class="border-4 border-gray-900 w-full">
+
+              <h1 class="text-md sm:text-lg lg:text-xl text-right font-bold lg:mt-5">
+                Wallet Manager
+              </h1>
+            </div>
+
+
+            <h1 class="text-md sm:text-lg lg:text-xl text-left lg:mx-5 mt-5">
+              Developed a comprehensive money management application to track funds and expenditures,
+              featuring
+              advanced
+              budgeting tools and an integrated analysis of past spending patterns.
+            </h1>
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <div class="w-5/6 mx-auto h-1 bg-[#545e51]"></div>
+
+
+      <!-- Portfolio page 2 -->
+      <div class="flex flex-grow xl:flex-row flex-col items-left border-4 border-[#f2f2ee] -mx-5">
+
+        <!-- Image 1 -->
+        <div class="border-4 border-[#f2f2ee] p-5 sm:p-14 md:p-20 lg:p-28">
+
+          <!-- Yellow border around the image section -->
+          <div class="border-4 border-[#f2f2ee] ">
+
+            <div class="border-4 border-[#f2f2ee] w-full mx-auto lg:p-5 ">
+
+              <img src="./assets/one_dearplan.png" alt="Person Writing" class="border-4 border-gray-900 w-full">
+
+              <h1 class="text-md sm:text-lg lg:text-xl text-right font-bold lg:mt-5">
+                OneDear-Plan
+              </h1>
+            </div>
+
+
+            <h1 class="text-md sm:text-lg lg:text-xl text-left lg:mx-5">
+              Co-planned and designed the user interface for a health and fitness tracker app, featuring
+              personalized
+              exercises,
+              diets, and self-care practices to promote healthy habits and enhance mental well-being.
+            </h1>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="w-5/6 mx-auto h-1 bg-[#545e51]"></div>
+
+      <!-- Portfolio page 3 -->
+      <div class="flex flex-grow xl:flex-row flex-col items-left -mx-5">
+
+        <!-- Image 1 -->
+        <div class="p-5 sm:p-14 md:p-20 lg:p-28">
+
+          <!-- Yellow border around the image section -->
+          <div>
+
+            <div class="border-4 border-[#f2f2ee] w-full mx-auto lg:p-5">
+
+              <img src="./assets/consultation_management.png" alt="Person Writing"
+                class="border-4 border-gray-900 w-full">
+
+              <h1 class="text-md sm:text-lg lg:text-xl text-right font-bold lg:mt-5">
+                Faculty Management
+                System
+              </h1>
+            </div>
+
+
+            <h1 class="text-md sm:text-lg lg:text-xl text-left lg:mx-5 mt-5">
+              Effectively implemented responsive login and signup pages for the consultation management
+              application,
+              enhancing the
+              proposed UI/UX design tailored for kiosk use.
+            </h1>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  </div>
+  </div>
+  </div>
+  <div id="contact" class="p-4 lg:p-10 bg-white lg:-my-6">
+    <div class="w-full">
+      <h1 class="text-left md:text-center lg:text-center text-3xl lg:text-4xl font-bold mb-10 lg:mb-20">
+        Contact Me
+      </h1>
+      <div class=" flex gap-5 lg:gap-32 flex-col md:flex-row justify-center">
+        <div>
+          <h1 class="text-lg sm:text-xl text-left lg:text-2xl font-bold ">
+            Email
+          </h1>
+          <h1 class="text-md lg:text-lg">
+            davidantonio.ty6@gmail.com
+          </h1>
+        </div>
+
+        <div>
+          <h1 class="text-lg sm:text-xl text-left lg:text-2xl font-bold ">
+            Phone
+          </h1>
+          <h1 class="text-md ">
+            +639317291299
+          </h1>
+        </div>
+        <div>
+          <h1 class="text-lg sm:text-xl text-left lg:text-2xl font-bold">Address</h1>
+
+          </h1>
+          <h1 class="text-md mb-10">
+            Ormoc City, Leye, Philippines
+          </h1>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
